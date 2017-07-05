@@ -12,3 +12,13 @@
     top: 0px;
     left: 15vw
 }
+
+html, body {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #e3dfff;
+    color: #222222;
+}
