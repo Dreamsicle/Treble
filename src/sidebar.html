@@ -20,6 +20,7 @@
             // Log messages from the server
             connection.onmessage = function (e) {
               console.log('Server: ' + e.data);
+              return e.data.byteLength
             };
 
             if (request === 'getAppList') {
@@ -37,6 +38,6 @@
   </head>
   <body>
     <p>test</p>
-    <button onclick="alert(sendRecieveMessage('getAppList'))">Get AppList</button>
+    <button onclick="alert(sendRecieveMessage('getAppList')); console.log(sendRecieveMessage('getAppList'))">Get AppList</button>
   </body>
 </html>
