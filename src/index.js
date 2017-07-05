@@ -56,6 +56,9 @@ var WebSocketServer = require('ws').Server
 wss.on('connection', function(ws) {
     ws.on('message', function(message) {
         console.log('received: %s', message);
+        if (message === 'GET appList') {
+          ws.send('placeholder')
+        }
     });
-    ws.send('something');
+    ws.send('from index.js');
 });

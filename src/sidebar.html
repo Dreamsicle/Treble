@@ -4,8 +4,39 @@
     <meta charset="utf-8">
     <link rel="stylesheet" href="sidebar.css">
     <link rel="stylesheet" href="universal.css">
+    <script>
+        function sendRecieveMessage(request){
+            var connection = new WebSocket('ws://localhost:8080', ['soap', 'xmpp'])
+            // When the connection is open, send some data to the server
+            connection.onopen = function () {
+              connection.send('GET appList'); // Send the message 'Ping' to the server
+            };
+
+            // Log errors
+            connection.onerror = function (error) {
+              console.log('WebSocket Error ' + error);
+            };
+
+            // Log messages from the server
+            connection.onmessage = function (e) {
+              console.log('Server: ' + e.data);
+            };
+
+            if (request === 'getAppList') {
+                connection.send('GET appList');
+            }
+
+            connection.binaryType = 'arraybuffer';
+            connection.onmessage = function(e) {
+              console.log(e.data.byteLength); // ArrayBuffer object if binary
+              return e.data.byteLength
+            };
+
+        }
+    </script>
   </head>
   <body>
     <p>test</p>
+    <button onclick="alert(sendRecieveMessage('getAppList'))">Get AppList</button>
   </body>
 </html>
