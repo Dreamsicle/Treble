@@ -3,14 +3,24 @@
     height: 100vh;
     position: fixed;
     top: 0px;
+    z-index: 15;
 }
 
 .topbar {
     width: 85vw;
-    height: 2rem;
+    height: 32px;
     position: fixed;
     top: 0px;
-    left: 15vw
+    left: 15vw;
+    z-index: 15;
+}
+
+.app {
+    width: 85vw;
+    height: calc(100vh - 32px);
+    /* account for sidebar, topbar, and rounded corners */
+    margin-top: 32px;
+    margin-left: 15vw;
 }
 
 html, body {
