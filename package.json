@@ -45,7 +45,8 @@
   },
   "dependencies": {
     "electron-compile": "^6.4.1",
-    "require-directory": "^2.1.1"
+    "require-directory": "^2.1.1",
+    "ws": "^3.0.0"
   },
   "devDependencies": {
     "babel-plugin-transform-async-to-generator": "^6.24.1",
